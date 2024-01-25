@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("submitButton").addEventListener("click", function(event) {
           event.preventDefault();
 
@@ -8,18 +8,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
           // Validar el correo electrónico
           if (!validarEmail(email)) {
-            alert("Correo electrónico no válido");
+            console.log("Error: Correo electrónico no válido");
             return;
           }
 
           // Validar la contraseña
           if (!validarPassword(password)) {
-            alert("La contraseña debe tener al menos 8 caracteres");
+            console.log("Error: La contraseña debe tener al menos 8 caracteres");
             return;
           }
 
           // Si ambos son válidos, puedes enviar el formulario o realizar otras acciones
-          alert("Formulario enviado con éxito");
+          console.log("Formulario enviado con éxito");
         });
       });
 
