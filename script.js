@@ -1,15 +1,36 @@
-// Ejemplo: Validar un correo electrónico
-function validarCorreoElectronico(correo) {
-    const patronCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return patronCorreo.test(correo);
-  }
-  function validateForm() {
-    var password = document.getElementById("password").value;
-    var confirmPassword = document.getElementById("confirmPassword").value;
+document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("submitButton").addEventListener("click", function(event) {
+          event.preventDefault();
 
-    // Verificar si la contraseña cumple con ciertos criterios (puedes ajustarlos según tus necesidades)
-    if (password.length < 8) {
-      document.getElementById("passwordError").innerText = "La contraseña debe tener al menos 8 caracteres.";
-      return false;
-        
-  
+          // Obtener los valores del correo y la contraseña
+          var email = document.getElementById("emailInput").value;
+          var password = document.getElementById("passwordInput").value;
+
+          // Validar el correo electrónico
+          if (!validarEmail(email)) {
+            alert("Correo electrónico no válido");
+            return;
+          }
+
+          // Validar la contraseña
+          if (!validarPassword(password)) {
+            alert("La contraseña debe tener al menos 8 caracteres");
+            return;
+          }
+
+          // Si ambos son válidos, puedes enviar el formulario o realizar otras acciones
+          alert("Formulario enviado con éxito");
+        });
+      });
+
+      // Función para validar el correo electrónico
+      function validarEmail(email) {
+        // Expresión regular simple para validar el formato del correo electrónico
+        var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+      }
+
+      // Función para validar la contraseña
+      function validarPassword(password) {
+        return password.length >= 8;
+      }
